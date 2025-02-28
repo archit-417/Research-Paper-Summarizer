@@ -1,12 +1,17 @@
 :root {
-    --primary: #2d240b;
-    --primary-light: #996a31;
-    --secondary: #6f4f08;
-    --gradient-1: linear-gradient(135deg, #00bfbc 0%, #daeaff 100%);
-    --secondary-light: #e2bc5d;
-    --accent: #ab7b13;
+    --buttons-bg: #BE3144;
+    --buttons-bg-hover: #872341;
+    --container-bg: #E17564;
+    --background: #09122C;
+
+    --primary: #09122C;
+    --primary-light: #313499;
+    --secondary: #1e086f;
+    --gradient-1: linear-gradient(to right, #09122C 0%, #0c1d7c 100%);
+    --secondary-light: #665de2;
+    --accent: #3c13ab;
     --light-bg: #f5f7fa;
-    --dark-text: #50422c;
+    --dark-text: #2e2c50;
     --light-text: #ecf0f1;
     --border-radius: 8px;
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -24,17 +29,14 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    opacity: 0.5;
-    top:0;
+    opacity: 0.7;
+    top: 0;
     bottom: 0;
-    left:0;
-    right:0;
     z-index: -1;
 }
 
 body {
-    /* Professional gradient background */
-    background: rgb(201, 159, 105);
+    background: var(--background);
     color: var(--dark-text);
     line-height: 1.6;
     min-height: 100vh;
@@ -44,24 +46,21 @@ body {
     max-width: 1000px;
     margin: 40px auto;
     padding: 30px;
-    background: linear-gradient(45deg, rgba(220, 232, 245, 0.5), rgba(243, 246, 251, 0.5));
+    background: var(--container-bg);
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    box-shadow: 3px 3px 10px rgba(161, 190, 251, 0.2);
     backdrop-filter: blur(2px);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 3px solid #be314492;
+    border-top: none;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 30px;
-    color: var(--primary);
+    color: rgb(255, 230, 230);
     font-weight: 700;
     position: relative;
     padding-bottom: 15px;
-    background: linear-gradient(to right, var(--primary), var(--primary-light));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
     cursor: default;
 }
 
@@ -73,7 +72,7 @@ h1:after {
     transform: translateX(-50%);
     width: 60%;
     height: 5px;
-    background: linear-gradient(to right, var(--secondary), var(--accent));
+    background: var(--gradient-1);
 }
 
 .tag-line{
@@ -81,13 +80,13 @@ h1:after {
     margin-bottom: 30px;
     font-size: 1.6vmax;
     font-style: italic;
-    color: black;
+    color: rgb(255, 238, 238);
     transition: transform 0.5s, color 0.5s;
     cursor: default;
 }
 
 .tag-line:hover{
-    color: var(--primary-light);
+    color: #09122C;
     transform: scale(1.2);
 }
 
@@ -145,7 +144,7 @@ h2 {
 
 .tab-btn.active {
     opacity: 1;
-    border-bottom: 3px solid #a37f1c;
+    border-bottom: 3px solid #872341;
     font-weight: 500;
     background: #f3f3f3;
 }
@@ -176,7 +175,7 @@ input[type="file"] {
 textarea:focus {
     outline: none;
     border-color: var(--secondary);
-    box-shadow: inset 0 0 0 2px rgba(219, 172, 52, 0.2);
+    box-shadow: 0 0 0 2px #872341;
     background: white;
 }
 
@@ -241,17 +240,13 @@ select {
 select:focus {
     outline: none;
     border-color: var(--secondary);
-    box-shadow: 0 0 0 2px rgba(219, 174, 52, 0.2);
+    box-shadow: 0 0 0 2px #872341;
     background: white;
 }
 
 select[multiple] {
     height: auto;
     min-height: 120px;
-}
-
-option{
-    color: black;
 }
 
 button {
@@ -270,13 +265,13 @@ button {
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(182, 154, 25, 0.491);
+    box-shadow: 0 4px 12px rgba(56, 25, 182, 0.491);
 }
 
 #summarize-btn {
     display: block;
     width: 100%;
-    background: #996a31;
+    background: var(--buttons-bg);
     margin: 20px 0;
     padding: 14px;
     font-size: 16px;
@@ -284,7 +279,7 @@ button:hover {
 }
 
 #summarize-btn:hover {
-    background: #7a511f;
+    background: var(--buttons-bg-hover);
     box-shadow: 0 4px 12px rgba(188, 110, 26, 0.3);
 }
 
@@ -304,13 +299,13 @@ button:hover {
 }
 
 .copy-btn {
-    background: #996a31;
+    background: var(--buttons-bg);
     display: block;
     width: 100%;
 }
 
 .copy-btn:hover {
-    background: #7a511f;
+    background: var(--buttons-bg-hover);
     box-shadow: 0 4px 12px rgba(80, 66, 44, 0.3);
 }
 
@@ -354,10 +349,75 @@ button:hover {
         justify-content: center;
         background: linear-gradient(to right, var(--accent), #0faf9a);
         height: 5vw;
+        
     }
     
     footer p {
-        font-weight: 500;
+        font-size: 2vmax;
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+.error-shake {
+    animation: shake 0.6s ease;
+    border-color: #e74c3c !important;
+}
+
+.char-count {
+    text-align: right;
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    display: none;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Additional transitions for buttons */
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+button:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+button:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    20% {
+        transform: scale(25, 25);
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40, 40);
     }
 }
 
@@ -369,7 +429,7 @@ button:hover {
 
 .input-section:hover,
 .output-section:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.2);
 }
 
 /* Adding a bit more style to the PDF upload area */
@@ -400,7 +460,7 @@ button:hover {
 .char-count {
     text-align: right;
     font-size: 12px;
-    color: #7f8c8d;
+    color:  #872341;
     margin-top: -15px;
     margin-bottom: 15px;
     display: none;
@@ -414,9 +474,9 @@ button:hover {
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(to right, var(--secondary), var(--accent));
-    border-radius: var(--border-radius) var(--border-radius) 0 0;
-    opacity: 0.7;
+    background: #07257d;
+    border-radius: var(--border-radius);
+    opacity: 0.9;
 }
 
 .container {
@@ -428,12 +488,9 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right, #8e4f06, #583507);
-    font-size: 1.5vmax;
+    background: #060b50;
+    font-size: 1.3vmax;
     color: white;
-    height: 4.7vmax;
-}
-
-footer p {
-    font-weight: 500;
+    height: 5vmax;
+    opacity: 0.5;
 }

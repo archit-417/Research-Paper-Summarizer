@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navigator.clipboard.writeText(summaryText)
             .then(() => {
                 const originalText = copyBtn.textContent;
-                copyBtn.style.backgroundColor = '#db7134';
+                copyBtn.style.backgroundColor = '#dc253d';
                 copyBtn.textContent = 'Copied to Clipboard ✓';
                 
                 setTimeout(() => {
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Enhance textarea
         const textarea = document.getElementById('paper-text');
         textarea.addEventListener('focus', function() {
-            this.style.boxShadow = '0 0 0 2px #db7134';
+            this.style.boxShadow = '0 0 0 1px #db3434';
         });
         
         textarea.addEventListener('blur', function() {
@@ -260,69 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addDynamicStyles = () => {
         const style = document.createElement('style');
         style.textContent = `
-            @keyframes shake {
-                0%, 100% { transform: translateX(0); }
-                20%, 60% { transform: translateX(-5px); }
-                40%, 80% { transform: translateX(5px); }
-            }
             
-            .error-shake {
-                animation: shake 0.6s ease;
-                border-color: #e74c3c !important;
-            }
-            
-            .char-count {
-                text-align: right;
-                font-size: 12px;
-                color: #7f8c8d;
-                margin-top: -15px;
-                margin-bottom: 15px;
-                display: none;
-            }
-            
-            .disabled {
-                opacity: 0.6;
-                cursor: not-allowed;
-            }
-            
-            /* Additional transitions for buttons */
-            button {
-                position: relative;
-                overflow: hidden;
-            }
-            
-            button:after {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 5px;
-                height: 5px;
-                background: rgba(255, 255, 255, 0.5);
-                opacity: 0;
-                border-radius: 100%;
-                transform: scale(1, 1) translate(-50%);
-                transform-origin: 50% 50%;
-            }
-            
-            button:focus:not(:active)::after {
-                animation: ripple 1s ease-out;
-            }
-            
-            @keyframes ripple {
-                0% {
-                    transform: scale(0, 0);
-                    opacity: 0.5;
-                }
-                20% {
-                    transform: scale(25, 25);
-                    opacity: 0.3;
-                }
-                100% {
-                    opacity: 0;
-                    transform: scale(40, 40);
-                }
-            }
         `;
         document.head.appendChild(style);
     };
