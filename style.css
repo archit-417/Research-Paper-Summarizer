@@ -1,20 +1,15 @@
 :root {
-    --buttons-bg: #BE3144;
-    --buttons-bg-hover: #872341;
-    --container-bg: #E17564;
-    --background: #09122C;
-
-    --primary: #09122C;
-    --primary-light: #313499;
-    --secondary: #1e086f;
-    --gradient-1: linear-gradient(to right, #09122C 0%, #0c1d7c 100%);
-    --secondary-light: #665de2;
-    --accent: #3c13ab;
-    --light-bg: #f5f7fa;
-    --dark-text: #2e2c50;
-    --light-text: #ecf0f1;
+    --primary-dark: #121212;
+    --secondary-dark: #1e1e1e;
+    --accent-dark: #2d2d2d;
+    --text-primary: #f0f0f0;
+    --text-secondary: #c0c0c0;
+    --accent-color: #7b68ee;
+    --accent-hover: #5a46d9;
+    --error-color: #cf6679;
+    --success-color: #03dac6;
     --border-radius: 8px;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     --transition: all 0.3s ease;
 }
 
@@ -22,22 +17,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-.background-img{
+.background-img {
     width: 100%;
     height: 100%;
     position: fixed;
-    opacity: 0.7;
+    opacity: 0.1;
     top: 0;
     bottom: 0;
     z-index: -1;
+    filter: brightness(0.4) contrast(1.2);
 }
 
 body {
-    background: var(--background);
-    color: var(--dark-text);
+    background: var(--primary-dark);
+    color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
 }
@@ -45,20 +41,18 @@ body {
 .container {
     max-width: 1000px;
     margin: 40px auto;
-    padding: 30px;
-    background: var(--container-bg);
+    padding: 35px;
+    background: var(--secondary-dark);
     border-radius: var(--border-radius);
-    box-shadow: 3px 3px 10px rgba(161, 190, 251, 0.2);
-    backdrop-filter: blur(2px);
-    border: 3px solid #be314492;
-    border-top: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 h1 {
     text-align: center;
     margin-bottom: 30px;
-    color: rgb(255, 230, 230);
-    font-weight: 700;
+    color: var(--text-primary);
+    font-weight: 600;
     position: relative;
     padding-bottom: 15px;
     cursor: default;
@@ -71,54 +65,55 @@ h1:after {
     left: 50%;
     transform: translateX(-50%);
     width: 60%;
-    height: 5px;
-    background: var(--gradient-1);
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-color), rgba(123, 104, 238, 0.4));
 }
 
-.tag-line{
+.tag-line {
     text-align: center;
     margin-bottom: 30px;
-    font-size: 1.6vmax;
+    font-size: 1.2rem;
     font-style: italic;
-    color: rgb(255, 238, 238);
+    color: var(--text-secondary);
     transition: transform 0.5s, color 0.5s;
     cursor: default;
+    opacity: 0.8;
 }
 
-.tag-line:hover{
-    color: #09122C;
-    transform: scale(1.2);
+.tag-line:hover {
+    color: var(--accent-color);
+    transform: scale(1.05);
 }
 
 h2 {
-    color: var(--primary);
+    color: var(--text-primary);
     margin: 20px 0 15px;
     font-weight: 500;
 }
 
 .input-section {
     padding: 25px;
-    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    background: var(--accent-dark);
     border-radius: var(--border-radius);
     margin-bottom: 30px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(213, 220, 226, 0.6);
+    box-shadow: var(--box-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .output-section {
     padding: 25px;
-    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    background: var(--accent-dark);
     border-radius: var(--border-radius);
     margin-bottom: 30px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(213, 220, 226, 0.6);
+    box-shadow: var(--box-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Tabs styling */
 .tabs {
     display: flex;
     margin-bottom: 20px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     background: none;
     border-radius: var(--border-radius) var(--border-radius) 0 0;
     padding: 0 10px;
@@ -128,7 +123,7 @@ h2 {
     padding: 12px 24px;
     background: none;
     border: none;
-    color: var(--dark-text);
+    color: var(--text-secondary);
     cursor: pointer;
     font-size: 15px;
     opacity: 0.7;
@@ -140,13 +135,15 @@ h2 {
 
 .tab-btn:hover {
     opacity: 0.9;
+    color: var(--text-primary);
 }
 
 .tab-btn.active {
     opacity: 1;
-    border-bottom: 3px solid #872341;
+    border-bottom: 3px solid var(--accent-color);
     font-weight: 500;
-    background: #f3f3f3;
+    color: var(--text-primary);
+    background: rgba(123, 104, 238, 0.1);
 }
 
 .tab-content {
@@ -164,25 +161,27 @@ input[type="file"] {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--border-radius);
     font-size: 14px;
     min-height: 200px;
     transition: var(--transition);
-    background: linear-gradient(to bottom, #ffffff, #fafbfc);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-primary);
+    resize: vertical;
 }
 
 textarea:focus {
     outline: none;
-    border-color: var(--secondary);
-    box-shadow: 0 0 0 2px #872341;
-    background: white;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(123, 104, 238, 0.3);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 input[type="file"] {
     padding: 30px;
-    border: 2px dashed #ddd;
-    background: #fef8f2;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    background: rgba(123, 104, 238, 0.05);
     min-height: auto;
     display: flex;
     align-items: center;
@@ -192,14 +191,14 @@ input[type="file"] {
 }
 
 input[type="file"]:hover {
-    border-color: var(--secondary-light);
-    background: #f7f6ec;
+    border-color: var(--accent-color);
+    background: rgba(123, 104, 238, 0.1);
 }
 
 .help-text {
     text-align: center;
     font-size: 14px;
-    color: #777;
+    color: var(--text-secondary);
     margin-top: -15px;
     margin-bottom: 20px;
 }
@@ -209,39 +208,41 @@ input[type="file"]:hover {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     margin-bottom: 25px;
-    background: linear-gradient(to bottom,#fef8f2 0%, #ffffff 100%);
-    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
     border-radius: var(--border-radius);
-    border: 1px solid rgba(213, 220, 226, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.options p{
+.options p {
     padding-left: 5px;
     padding-bottom: 6px;
+    color: var(--text-secondary);
 }
 
 label {
     display: block;
     margin-bottom: 8px;
-    font-weight: 700;
-    max-width: 50%;
+    font-weight: 500;
+    color: var(--text-primary);
 }
 
 select {
     padding: 10px;
     border-radius: var(--border-radius);
-    border: 1px solid #ddd;
-    background: linear-gradient(to bottom, #ffffff, #f8fafc);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
     min-width: 200px;
     font-size: 14px;
     transition: var(--transition);
+    color: var(--text-primary);
+    width: 100%;
 }
 
 select:focus {
     outline: none;
-    border-color: var(--secondary);
-    box-shadow: 0 0 0 2px #872341;
-    background: white;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(123, 104, 238, 0.3);
 }
 
 select[multiple] {
@@ -249,8 +250,14 @@ select[multiple] {
     min-height: 120px;
 }
 
+select option {
+    background-color: var(--secondary-dark);
+    color: var(--text-primary);
+    padding: 8px;
+}
+
 button {
-    background: linear-gradient(to right, var(--secondary), var(--secondary-light));
+    background: var(--accent-color);
     color: white;
     border: none;
     padding: 12px 24px;
@@ -260,53 +267,49 @@ button {
     font-weight: 500;
     transition: var(--transition);
     display: inline-block;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
 }
 
 button:hover {
+    background: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(56, 25, 182, 0.491);
+    box-shadow: 0 4px 12px rgba(123, 104, 238, 0.5);
 }
 
 #summarize-btn {
     display: block;
     width: 100%;
-    background: var(--buttons-bg);
     margin: 20px 0;
     padding: 14px;
     font-size: 16px;
     letter-spacing: 0.5px;
+    background: linear-gradient(to right, var(--accent-color), #6a5acd);
 }
 
 #summarize-btn:hover {
-    background: var(--buttons-bg-hover);
-    box-shadow: 0 4px 12px rgba(188, 110, 26, 0.3);
+    background: linear-gradient(to right, var(--accent-hover), #5a46d9);
 }
 
 /* Output section */
-.output-section {
-    background: linear-gradient(145deg, #ffffff, #f8fafc);
-}
-
 #summary-output {
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--border-radius);
-    background: linear-gradient(to bottom, #fbfaf9, #fcf7f2);
+    background: rgba(0, 0, 0, 0.2);
     min-height: 150px;
     line-height: 1.8;
     margin-bottom: 20px;
+    color: var(--text-primary);
 }
 
 .copy-btn {
-    background: var(--buttons-bg);
+    background: var(--accent-color);
     display: block;
     width: 100%;
 }
 
 .copy-btn:hover {
-    background: var(--buttons-bg-hover);
-    box-shadow: 0 4px 12px rgba(80, 66, 44, 0.3);
+    background: var(--accent-hover);
 }
 
 /* Loading spinner */
@@ -314,9 +317,9 @@ button:hover {
     display: none;
     width: 50px;
     height: 50px;
-    border: 5px solid rgba(0, 0, 0, 0.1);
+    border: 5px solid rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    border-top-color: var(--secondary);
+    border-top-color: var(--accent-color);
     animation: spin 1s ease-in-out infinite;
     margin: 20px auto;
 }
@@ -344,16 +347,11 @@ button:hover {
     }
 
     footer {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(to right, var(--accent), #0faf9a);
-        height: 5vw;
-        
+        height: 50px;
     }
     
     footer p {
-        font-size: 2vmax;
+        font-size: 14px;
     }
 }
 
@@ -365,13 +363,13 @@ button:hover {
 
 .error-shake {
     animation: shake 0.6s ease;
-    border-color: #e74c3c !important;
+    border-color: var(--error-color) !important;
 }
 
 .char-count {
     text-align: right;
     font-size: 12px;
-    color: #7f8c8d;
+    color: var(--text-secondary);
     margin-top: -15px;
     margin-bottom: 15px;
     display: none;
@@ -382,7 +380,7 @@ button:hover {
     cursor: not-allowed;
 }
 
-/* Additional transitions for buttons */
+/* Button ripple effect */
 button {
     position: relative;
     overflow: hidden;
@@ -421,7 +419,7 @@ button:focus:not(:active)::after {
     }
 }
 
-/* Additional interactive effects */
+/* Hover effects */
 .input-section,
 .output-section {
     transition: var(--transition);
@@ -429,23 +427,23 @@ button:focus:not(:active)::after {
 
 .input-section:hover,
 .output-section:hover {
-    box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Adding a bit more style to the PDF upload area */
+/* PDF upload area styling */
 #pdf-content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Animation for the summary output when it appears */
+/* Animation for the summary output */
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(10px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -456,41 +454,18 @@ button:focus:not(:active)::after {
     animation: fadeIn 0.5s ease-out;
 }
 
-/* Character counter styling */
-.char-count {
-    text-align: right;
-    font-size: 12px;
-    color:  #872341;
-    margin-top: -15px;
-    margin-bottom: 15px;
-    display: none;
-}
-
-/* Additional styling for better visual hierarchy */
-.container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: #07257d;
-    border-radius: var(--border-radius);
-    opacity: 0.9;
-}
-
-.container {
-    position: relative;
-    overflow: hidden;
-}
-
+/* Footer */
 footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #060b50;
-    font-size: 1.3vmax;
-    color: white;
-    height: 5vmax;
-    opacity: 0.5;
+    background: var(--primary-dark);
+    color: var(--text-secondary);
+    height: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer p {
+    font-size: 14px;
+    letter-spacing: 0.5px;
 }
