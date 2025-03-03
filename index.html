@@ -1,108 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abstractify</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Favion for title icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-
-    <link rel="stylesheet" href="landingstyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <main class="container">
-        <header>
-            <h1>Abstractify: AI-Driven Paper Summarizer</h1>
-            <div class="underline"></div>
-            <p class="tagline">Complex papers, simple insights!</p>
-        </header>
+    <img class="background-img" src="images/background-img.png" alt="background-img">
+    <div class="container">
+        <h1>Abstractify: AI-Driven Paper Summarizer</h1>
+        <p class="tag-line">Complex papers, simple insights!</p>
 
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Transform Academic Research into Actionable Insights</h2>
-                <p>Abstractify uses advanced AI to analyze and summarize complex research papers, saving you hours of reading time without missing crucial information.</p>
-                <a href="abstractify.html" class="cta-button" id="try-now-btn">Try Abstractify Now</a>
+        <div class="input-section">
+            <div class="tabs">
+                <button class="tab-btn active" id="text-tab">Text Input</button>
+                <button class="tab-btn" id="pdf-tab">PDF Upload</button>
             </div>
-        </section>
 
-        <section class="features">
-            <h2>Why Choose Abstractify?</h2>
-            <div class="feature-cards">
-                <div class="feature-card">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Fast & Efficient</h3>
-                    <p>Summarize lengthy papers in seconds, not hours.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-brain"></i>
-                    <h3>AI-Powered Analysis</h3>
-                    <p>Advanced algorithms extract key concepts and findings.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-sliders-h"></i>
-                    <h3>Customizable Focus</h3>
-                    <p>Tailor summaries to your specific research interests.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-file-pdf"></i>
-                    <h3>PDF Support</h3>
-                    <p>Direct upload and analysis of PDF research papers.</p>
-                </div>
+            <div class="tab-content active" id="text-content">
+                <textarea id="paper-text" placeholder="Paste your research paper text here..."></textarea>
             </div>
-        </section>
 
-        <section class="how-it-works">
-            <h2>How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Upload or Paste</h3>
-                    <p>Add your research paper as text or upload a PDF file.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Configure Options</h3>
-                    <p>Select summary length and focus areas of interest.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Generate Summary</h3>
-                    <p>Receive a concise, well-structured summary of the paper.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Save & Share</h3>
-                    <p>Download your summary or share it with colleagues.</p>
-                </div>
+            <div class="tab-content" id="pdf-content">
+                <input type="file" id="pdf-file" accept=".pdf">
+                <p class="help-text">PDF will be processed and text extracted.</p>
             </div>
-        </section>
 
-        <section class="cta">
-            <h2>Ready to Simplify Your Research Process?</h2>
-            <p>Join thousands of researchers who are saving time and gaining deeper insights with Abstractify.</p>
-            <a href="abstractify.html" class="cta-button" id="go-to-app-btn">Go to Abstractify App</a>
-        </section>
+            <div class="options">
+                <label>
+                    <p>Summary Length:</p>
+                    <select id="summary-length">
+                        <option value="short">Short (1-2 paragraphs)</option>
+                        <option value="medium" selected>Medium (3-5 paragraphs)</option>
+                        <option value="long">Long (6-8 paragraphs)</option>
+                    </select>
+                </label>
 
-        <footer>
-            <div class="footer-content">
-                <div class="logo">Abstractify</div>
-                <div class="copyright">
-                    <p>&copy; 2025 Abstractify. All rights reserved.</p>
-                </div>
-                <div class="social-links">
-                    <a href="https://archit-srivastava.netlify.app/" title="Portfolio" target="_blank"><i class="fa-solid fa-circle-user"></i></i></a>
-                    <a href="https://www.linkedin.com/in/archit008/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/archit-417" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
+                <label>
+                    <p>Focus Areas:</p>
+                    <select id="focus-area" multiple>
+                        <option value="methodology">Methodology</option>
+                        <option value="results" selected>Results</option>
+                        <option value="conclusions" selected>Conclusions</option>
+                        <option value="limitations">Limitations</option>
+                    </select>
+                </label>
             </div>
-        </footer>
-    </main>
 
-    <script src="landingscript.js"></script>
+            <button id="summarize-btn">Summarize Paper</button>
+        </div>
+
+        <div class="output-section">
+            <h2>Summary</h2>
+            <div class="loading-spinner" id="loading"></div>
+            <div id="summary-output"></div>
+            <button id="copy-btn" class="copy-btn">Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created by Archit Srivastava</p>
+        <div class="social-links">
+            <a href="https://archit-srivastava.netlify.app/" title="Portfolio" target="_blank"><i class="fa-solid fa-circle-user"></i></i></a>
+            <a href="https://www.linkedin.com/in/archit008/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
