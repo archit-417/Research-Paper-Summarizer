@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstractify</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favion for title icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+
+<body>
+    <img class="background-img" src="images/background-img.png" alt="background-img">
+    <div class="container">
+        <h1>Abstractify: AI-Driven Paper Summarizer</h1>
+        <p class="tag-line">Complex papers, simple insights!</p>
+
+        <div class="input-section">
+            <div class="tabs">
+                <button class="tab-btn active" id="text-tab">Text Input</button>
+                <button class="tab-btn" id="pdf-tab">PDF Upload</button>
+            </div>
+
+            <div class="tab-content active" id="text-content">
+                <textarea id="paper-text" placeholder="Paste your research paper text here..."></textarea>
+            </div>
+
+            <div class="tab-content" id="pdf-content">
+                <input type="file" id="pdf-file" accept=".pdf">
+                <p class="help-text">PDF will be processed and text extracted.</p>
+            </div>
+
+            <div class="options">
+                <label>
+                    <p>Summary Length:</p>
+                    <select id="summary-length">
+                        <option value="short">Short (1-2 paragraphs)</option>
+                        <option value="medium" selected>Medium (3-5 paragraphs)</option>
+                        <option value="long">Long (6-8 paragraphs)</option>
+                    </select>
+                </label>
+
+                <label>
+                    <p>Focus Areas:</p>
+                    <select id="focus-area" multiple>
+                        <option value="methodology">Methodology</option>
+                        <option value="results" selected>Results</option>
+                        <option value="conclusions" selected>Conclusions</option>
+                        <option value="limitations">Limitations</option>
+                    </select>
+                </label>
+            </div>
+
+            <button id="summarize-btn">Summarize Paper</button>
+        </div>
+
+        <div class="output-section">
+            <h2>Summary</h2>
+            <div class="loading-spinner" id="loading"></div>
+            <div id="summary-output"></div>
+            <button id="copy-btn" class="copy-btn">Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created by Archit Srivastava</p>
+        <div class="social-links">
+            <a href="https://archit-srivastava.netlify.app/" title="Portfolio" target="_blank"><i class="fa-solid fa-circle-user"></i></i></a>
+            <a href="https://www.linkedin.com/in/archit008/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
